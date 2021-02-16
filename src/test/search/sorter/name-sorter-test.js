@@ -1,7 +1,7 @@
 import Assertions from '../framework/assertions.js';
 import Test from '../framework/test-builder.js';
-import NameAscSorter from '../../sorters/name-asc-sorter.js';
-import NameDescSorter from '../../sorters/name-desc-sorter.js';
+import NameAscSorter from '../../search/sorters/name-asc-sorter.js';
+import NameDescSorter from '../../search/sorters/name-desc-sorter.js';
 import products from '../sample/wix-product-query-json-real-parsed-reduced.js';
 
 const test = new Test('NameSorterTest')

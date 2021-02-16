@@ -4,7 +4,7 @@ export default class Sorter {
     }
 
     comparator() {
-        throw new SorterError(this.constructor.name + ': comparator() not implemented!')
+        return (a, b) => 0;
     }
 }
 

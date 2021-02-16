@@ -3,6 +3,10 @@ import ObjectAsserter from './object-asserter.js';
 
 export default class ArrayAsserter {
     constructor(arr, container) {
+        if (!Array.isArray(arr)) {
+            new AssertionError(this.constructor.name)
+                .failDifferentType('Array', typeof arr);
+        }
         this.arr = arr;
         if (container) {
             this.name = 'Array in ' + container;

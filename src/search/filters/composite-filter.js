@@ -14,7 +14,5 @@ export default class CompositeFilter extends Filter {
         this.filters.push(... filters);
     }
 
-    applies(product) {
-        return this.filters.every(f => f.applies(product));
-    }
+    predicate = p => this.filters.every(f => f.predicate(p));
 }

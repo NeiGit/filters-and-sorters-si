@@ -1,7 +1,7 @@
-import Assertions from '../framework/assertions.js';
-import Test from '../framework/test-builder.js';
-import CategoryFilter from '../../filters/category-filter.js'
-import products from '../sample/wix-product-query-json-real-parsed-reduced.js';
+import Assertions from '../../framework/assertions.js';
+import Test from '../../framework/test-builder.js';
+import CategoryFilter from '../../../search/filters/category-filter.js'
+import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
 const test = new Test('CategoryFilterTest')
 

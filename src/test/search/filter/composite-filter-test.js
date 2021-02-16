@@ -1,10 +1,10 @@
-import Assertions from '../framework/assertions.js';
-import Test from '../framework/test-builder.js';
-import CategoryFilter from '../../filters/category-filter.js'
-import BrandFilter from '../../filters/brand-filter.js';
-import CompositeFilter from '../../filters/composite-filter.js';
+import Assertions from '../../framework/assertions.js';
+import Test from '../../framework/test-builder.js';
+import CategoryFilter from '../../../search/filters/category-filter.js'
+import BrandFilter from '../../../search/filters/brand-filter.js';
+import CompositeFilter from '../../../search/filters/composite-filter.js';
 
-import products from '../sample/wix-product-query-json-real-parsed-reduced.js';
+import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
 const test = new Test('CmpositeFilterTest')
 

@@ -3,22 +3,21 @@ import Filter from './filter.js';
 export default class CategoryFilter extends Filter {
     constructor(categories = []) {
         super();
-        this.categories = categories;
+        this.categories = [];
+        categories.forEach(c => this.addCategory(c));
     }
 
     addCategory(category) {
-        this.categories.push(category)
+        this.categories.push(category.toLowerCase());
     }
 
-    applies(product) {
-        if (this.invalidInput(product)) return false;
-        return this.categories.includes(product.category);
+    predicate = p => {
+        const catLowerCase = p.category.toLowerCase();
+        return this.categories.includes(catLowerCase);
     }
 
     static fromCategory(category) {
-        const filter = new CategoryFilter();
-        filter.addCategory(category);
-        return filter;
+        return this.fromCategories([category]);
     }
 
     static fromCategories(categories) {
