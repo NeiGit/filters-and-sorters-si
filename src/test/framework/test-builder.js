@@ -11,6 +11,7 @@ export default class Test {
     }
 
     run() {
+        console.log('\x1b[33m%s\x1b[0m', `EXECUTING ${this.name} - Total: ${this.tests.length}`);
         this.tests.forEach(test => {
             try {
                 test()
@@ -21,10 +22,11 @@ export default class Test {
         })
         if (this.failed.length) {
             console.log(`${this.failed.length} FAILED TESTS: `)
-            this.failed.forEach(t => console.log(t.describe()))
+            // X = \u2613 o 2
+            this.failed.forEach(t => console.log('\x1b[31m%s\x1b[0m', '\u26D4 ' + t.describe()))
             throw new Error (`${this.name} - FAILED`)
         } else {
-            console.log(`${this.name} - ALL TESTS PASSED - Total: ${this.passed}`)
+            console.log('\x1b[32m%s\x1b[0m', `FINISHED ${this.name} - ALL TESTS PASSED - Total: ${this.passed}`)
         }
     }
 
@@ -32,7 +34,7 @@ export default class Test {
         try {
             this.run()
         } catch (err) {
-            console.log((`${this.name} - FAILED`))
+            console.log('\x1b[41m%s\x1b[0m',`${this.name} - FAILED`)
         }
     }
 
@@ -42,7 +44,7 @@ export default class Test {
 
     registerPassed (test) {
         const name = test.toString().replace('() =>', '');
-        console.log(name + ' passed')
+        console.log('\x1b[36m%s\x1b[0m', '\u2713 ' + name + ' passed')
         this.passed ++;
     }
 }
