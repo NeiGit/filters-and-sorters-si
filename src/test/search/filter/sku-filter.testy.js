@@ -3,7 +3,7 @@ import Test from '../../framework/test-builder.js';
 import SkuFilter from '../../../search/filters/sku-filter.js'
 import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
-const test = new Test('SkuFilter Test')
+const test = new Test('SkuFilterTest')
 
 function testSkuFilter() {
     const f = new SkuFilter('2188');
@@ -18,5 +18,5 @@ function testSkuFilter() {
         .hasAttributeWithValue('price', 3380);
 }
 
-test.add(() => testSkuFilter());
+test.add(testSkuFilter);
 test.run();

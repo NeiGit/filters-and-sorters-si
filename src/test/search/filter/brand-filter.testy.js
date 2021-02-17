@@ -3,7 +3,7 @@ import Test from '../../framework/test-builder.js';
 import BrandFilter from '../../../search/filters/brand-filter.js'
 import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
-const test = new Test('BrandFilter Test')
+const test = new Test('BrandFilterTest')
 
 function testBrandFilter() {
     let f = new BrandFilter('Wassington');
@@ -14,5 +14,5 @@ function testBrandFilter() {
         .containsOnly(['2102', '2188']);
 }
 
-test.add(() => testBrandFilter());
+test.add(testBrandFilter);
 test.run();

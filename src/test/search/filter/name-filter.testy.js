@@ -3,7 +3,7 @@ import Test from '../../framework/test-builder.js';
 import NameFilter from '../../../search/filters/name-filter.js'
 import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
-const test = new Test('NameFilter Test')
+const test = new Test('NameFilterTest')
 
 function testNameFilter() {
     let f = new NameFilter('AcrilwaX');
@@ -24,5 +24,5 @@ function testNameFilter() {
         .hasAttributeWithValue('sku', '2189');
 }
 
-test.add(() => testNameFilter());
+test.add(testNameFilter);
 test.run();

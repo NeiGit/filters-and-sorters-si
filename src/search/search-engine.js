@@ -15,7 +15,17 @@ export default class SearchEngine {
         this.sorterSupplier = () => sorter;
     }
 
-    process(products) {
+    filter(products) {
+        const predicate = this.filterSupplier().predicate;
+        return products.filter(predicate);
+    }
+
+    sort(products) {
+        const comparator = this.sorterSupplier().comparator;
+        return products.sort(comparator);
+    }
+
+    search(products) {
         const predicate = this.filterSupplier().predicate;
         const comparator = this.sorterSupplier().comparator;
         return products.filter(predicate).sort(comparator);

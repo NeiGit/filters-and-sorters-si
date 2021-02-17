@@ -36,6 +36,6 @@ function testMultipleCategories() {
     Assertions.assertThatArray(cat2).hasLength(2);
 }
 
-test.add(() => testSingleCategory());
-test.add(() => testMultipleCategories());
+test.add(testSingleCategory);
+test.add(testMultipleCategories);
 test.run();

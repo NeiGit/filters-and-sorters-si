@@ -11,7 +11,7 @@ export default [
     "sku": "2101",
     "name": "Abrillantador para Lavavajillas x 20 L.",
     "description": "<p>Abrillantador para lavavajillas automático&nbsp;x&nbsp;5 L. Wassington.<br>\nAbrillantador es un producto líquido especialmente formulado para el abrillantado automático de todo tipo de cubertería y cristalería. Contiene una mezcla especial de tensioactivos no iónicos que permiten un secado rápido,uniforme y sin velos.</p>\n",
-    "category": "Wassington",
+    "category": "W Vajilla",
     "brand": "W Vajilla",
     "price": 240
   },

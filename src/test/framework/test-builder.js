@@ -14,7 +14,7 @@ export default class Test {
         console.log('\x1b[33m%s\x1b[0m', `EXECUTING ${this.name} - Total: ${this.tests.length}`);
         this.tests.forEach(test => {
             try {
-                test()
+                test();
                 this.registerPassed(test)
             } catch (err) {
                 this.registerFailed(test, err)
@@ -39,11 +39,13 @@ export default class Test {
     }
 
     registerFailed (test, err) {
-        this.failed.push(new FailedTest(test.toString().replace('() =>', ''), err.message))
+        const string = test.toString();
+        this.failed.push(new FailedTest(string.replace('() =>', '').substr(0, string.indexOf('{')).trim(), err.message))
     }
 
     registerPassed (test) {
-        const name = test.toString().replace('() =>', '').trim();
+        const string = test.toString();
+        const name = string.replace('() =>', '').substr(0, string.indexOf('{')).trim();
         console.log('\x1b[36m%s\x1b[0m', '\u2713 ' + name + ' passed')
         this.passed ++;
     }

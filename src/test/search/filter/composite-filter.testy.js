@@ -34,7 +34,7 @@ function testMultipleFilters() {
                         .hasAttributeWithValue('brand', 'Wassington'));
 }
 
-test.add(() => testSingleFilter());
-test.add(() => testMultipleFilters());
+test.add(testSingleFilter);
+test.add(testMultipleFilters);
 
 test.run();

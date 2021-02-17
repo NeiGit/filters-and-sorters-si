@@ -34,6 +34,6 @@ function testSortedDesc() {
         .hasAttributeWithValue('sku', 2004);
 }
 
-test.add(() => testSortedAsc());
-test.add(() => testSortedDesc());
+test.add(testSortedAsc);
+test.add(testSortedDesc);
 test.run();

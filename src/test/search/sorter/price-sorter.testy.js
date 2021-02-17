@@ -40,6 +40,6 @@ function testSortedDesc() {
     Assertions.assertTrue(() => firstElement.price > secondElement.price);
 }
 
-test.add(() => testSortedAsc());
-test.add(() => testSortedDesc());
+test.add(testSortedAsc);
+test.add(testSortedDesc);
 test.run();

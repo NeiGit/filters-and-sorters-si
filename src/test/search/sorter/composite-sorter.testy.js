@@ -55,5 +55,5 @@ function testPriceAndName() {
         .hasAttributeWithValue('sku', 2002);
 }
 
-test.add(() => testPriceAndName());
+test.add(testPriceAndName);
 test.run();
