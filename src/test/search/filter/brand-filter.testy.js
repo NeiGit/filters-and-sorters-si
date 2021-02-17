@@ -15,4 +15,4 @@ function testBrandFilter() {
 }
 
 test.add(() => testBrandFilter());
-test.safeRun();
+test.run();

@@ -36,4 +36,4 @@ function testSortedDesc() {
 
 test.add(() => testSortedAsc());
 test.add(() => testSortedDesc());
-test.safeRun();
+test.run();

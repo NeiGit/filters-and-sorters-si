@@ -56,4 +56,4 @@ function testPriceAndName() {
 }
 
 test.add(() => testPriceAndName());
-test.safeRun();
+test.run();

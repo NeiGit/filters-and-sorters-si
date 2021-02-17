@@ -25,4 +25,4 @@ function testNameFilter() {
 }
 
 test.add(() => testNameFilter());
-test.safeRun();
+test.run();

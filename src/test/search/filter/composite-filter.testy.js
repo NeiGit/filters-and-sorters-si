@@ -6,7 +6,7 @@ import CompositeFilter from '../../../search/filters/composite-filter.js';
 
 import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
-const test = new Test('CmpositeFilterTest')
+const test = new Test('CompositeFilterTest')
 
 function testSingleFilter() {
     const compositeFilter = new CompositeFilter();
@@ -17,7 +17,7 @@ function testSingleFilter() {
     const filtered = compositeFilter.filter(products);
     Assertions.assertThatArray(filtered)
         .hasLength(2)
-        .allMatch(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos'));
+        .allMatchAssertion(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos'));
 }
 
 function testMultipleFilters() {
@@ -30,11 +30,11 @@ function testMultipleFilters() {
     const filtered = compositeFilter.filter(products);
     Assertions.assertThatArray(filtered)
         .hasLength(1)
-        .allMatch(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos')
+        .allMatchAssertion(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos')
                         .hasAttributeWithValue('brand', 'Wassington'));
 }
 
 test.add(() => testSingleFilter());
 test.add(() => testMultipleFilters());
 
-test.safeRun();
+test.run();

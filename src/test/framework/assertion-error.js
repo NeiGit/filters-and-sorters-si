@@ -51,12 +51,16 @@ export default class AssertionError {
         this.fail(`have array "${arrName}" containing value ${value} but it did not`)
     }
 
+    failSomeMismatched(predicate, values) {
+        this.fail(`have every value matching "${predicate.toString()}" but some did not: ${values}`)
+    }
+
     failValueNotPresent(value) {
         this.fail(`contain value "${value}" but it did not`)
     }
 
     failValuesNotPresent(values) {
-        this.fail(`contain values "${values}" but it did not`)
+        this.fail(`contain value/s "${values}" but it did not`)
     }
 
     throwsFails() {

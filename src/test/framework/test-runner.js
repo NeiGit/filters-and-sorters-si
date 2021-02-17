@@ -22,17 +22,13 @@ function fromDir(startPath,filter, tests) {
 };
 
 function run(path) {
-   childProcess.exec('node ' + path.toString(), (error, stdout, stderr) => 
-   {
-        if (error !== null) {
-            throw new Error(stdout);
-        } else {
-            console.log(stdout);
-        }
-   })    
+   childProcess.execSync('node ' + path.toString(),  {stdio: 'inherit'});   
+   console.log();
 }
 
 function runSync(tests) {
+    console.log('\x1b[47m', '\x1b[30m', `BEGIN TEST EXECUTION - Total: ${tests.length} `, '\x1b[0m');
+    console.log();
     for (const index in tests) {
         run(tests[index]);
     }
@@ -41,5 +37,5 @@ function runSync(tests) {
 const tests = [];
 fromDir('src/test', /\.testy.js$/, tests);
 runSync(tests);
-console.log('\x1b[42m', '\x1b[30m', `\u2705\u2705 FINISHED RUNNING ALL TESTS - ALL TESTS PASSED \u2705\u2705`, '\x1b[0m');
+console.log('\x1b[42m', '\x1b[30m', `\u2705\u2705 FINISHED RUNNING ALL TESTS - ALL PASSED - Total: ${tests.length} \u2705\u2705`, '\x1b[0m');
 

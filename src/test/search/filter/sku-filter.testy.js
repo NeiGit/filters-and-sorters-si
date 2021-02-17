@@ -19,4 +19,4 @@ function testSkuFilter() {
 }
 
 test.add(() => testSkuFilter());
-test.safeRun();
+test.run();

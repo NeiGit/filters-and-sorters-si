@@ -59,7 +59,7 @@ export default class ArrayAsserter {
     }
 
     containsAll(expectedValues) {
-        const notPresentValues = expectedValues.some(v => !this.arr.includes(v));
+        const notPresentValues = expectedValues.filter(v => !this.arr.includes(v));
         if (notPresentValues.length) {
             this.assertionError.failValuesNotPresent(notPresentValues);
         }
@@ -82,8 +82,15 @@ export default class ArrayAsserter {
         return this;
     }
 
-    allMatch (predicate) {
+    allMatchAssertion (predicate) {
         this.arr.map(v => new ObjectAsserter(v))
             .forEach(predicate);
+    }
+
+    allMatch(predicate) {
+        const noMatch = this.arr.filter(p => !predicate(p));
+        if (noMatch.length) {
+            this.assertionError.failSomeMismatched(predicate, noMatch);
+        }
     }
 }

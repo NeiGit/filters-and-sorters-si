@@ -9,21 +9,21 @@ function testSingleCategory() {
     const f = CategoryFilter.fromCategory('W Cuidado Pisos')
     Assertions.assertThatArray(f.categories).hasLength(1);
     Assertions.assertThatObject(f)
-        .hasArrayContaining('categories', ['W Cuidado Pisos'])
+        .hasArrayContaining('categories', ['w cuidado pisos'])
 
     const filtered = f.filter(products);
 
     Assertions.assertThatArray(filtered)
         .hasLength(2)
-        .allMatch(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos'));
+        .allMatchAssertion(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos'));
 }
 
 function testMultipleCategories() {
-    const f = CategoryFilter.fromCategories(['W Cuidado Pisos', 'S Linea Agral']);
+    const f = CategoryFilter.fromCategories(['w cuidado pisos', 's linea agral']);
     Assertions.assertThatArray(f.categories).hasLength(2);
     Assertions.assertThatObject(f)
         .hasArrayAndGetIt('categories')
-            .containsOnly(['W Cuidado Pisos', 'S Linea Agral']);
+            .containsOnly(['w cuidado pisos', 's linea agral']);
 
     const filtered = f.filter(products);
     Assertions.assertThatArray(filtered)
@@ -38,4 +38,4 @@ function testMultipleCategories() {
 
 test.add(() => testSingleCategory());
 test.add(() => testMultipleCategories());
-test.safeRun();
+test.run();

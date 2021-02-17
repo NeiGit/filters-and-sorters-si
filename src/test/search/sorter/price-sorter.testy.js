@@ -1,5 +1,6 @@
 import Assertions from '../../framework/assertions.js';
 import Test from '../../framework/test-builder.js';
+import SorterUtils from './sorter-test-utils.js';
 import PriceAscSorter from '../../../search/sorters/price-asc-sorter.js';
 import PriceDescSorter from '../../../search/sorters/price-desc-sorter.js';
 import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
@@ -20,6 +21,7 @@ function testSortedAsc() {
         .hasAttributeWithValue('sku', 2102);
 
     Assertions.assertTrue(() => firstElement.price < secondElement.price);
+    SorterUtils.assertOrder(sortedAsc, (restP, compareP) => restP.price >= compareP.price);
 }
 
 function testSortedDesc() {
