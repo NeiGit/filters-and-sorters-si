@@ -21,7 +21,7 @@ export default class Test {
             }
         })
         if (this.failed.length) {
-            console.log(`${this.failed.length} FAILED TESTS: `)
+            console.log('\x1b[41m', '\x1b[30m', `${this.failed.length} FAILED TESTS: `, '\x1b[0m')
             // X = \u2613 o 2
             this.failed.forEach(t => console.log('\x1b[31m%s\x1b[0m', '\u26D4 ' + t.describe()))
             throw new Error (`${this.name} - FAILED`)
@@ -34,7 +34,7 @@ export default class Test {
         try {
             this.run()
         } catch (err) {
-            console.log('\x1b[41m%s\x1b[0m',`${this.name} - FAILED`)
+            console.log('\x1b[41m', '\x1b[30m', `${this.name} - FAILED`, '\x1b[0m')
         }
     }
 
@@ -56,6 +56,6 @@ class FailedTest {
     }
 
     describe () {
-        return `${this.name} - ${this.message}`
+        return `${this.name} failed\n${this.message}`
     }
 }

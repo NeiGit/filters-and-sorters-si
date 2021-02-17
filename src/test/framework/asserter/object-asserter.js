@@ -3,12 +3,13 @@ import ArrayAsserter from './array-asserter.js';
 import FunctionAsserter from './function-asserter.js';
 
 export default class ObjectAsserter {
-    constructor (o, name) {
+    constructor (o, container) {
         this.o = o
-        if (name) {
-            this.name = name
-        }
-        else this.name = o.constructor.name    
+        if (container) {
+            this.name =  o.constructor.name + ' in ' + container.constructor.name;
+        } else {
+            this.name = o.constructor.name;
+        }   
         this.assertionError = new AssertionError(this.name)
     }
 
@@ -83,6 +84,11 @@ export default class ObjectAsserter {
             this.assertionError.failDifferentType('array', arr)
         }
         return new ArrayAsserter(arr, this.name);
+    }
+
+    hasObjectAndGetIt(objName) {
+        this.hasAttribute(objName);
+        return new ObjectAsserter(this.getAttribute(objName));
     }
 
     getAttribute(atrName) {

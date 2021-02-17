@@ -25,7 +25,7 @@ function run(path) {
    childProcess.exec('node ' + path.toString(), (error, stdout, stderr) => 
    {
         if (error !== null) {
-            console.log(`exec error: ${error}`);
+            throw new Error(stdout);
         } else {
             console.log(stdout);
         }
@@ -39,7 +39,6 @@ function runSync(tests) {
 }
 
 const tests = [];
-fromDir('../../test', /\.testy.js$/, tests);
-
+fromDir('src/test', /\.testy.js$/, tests);
 runSync(tests);
 
