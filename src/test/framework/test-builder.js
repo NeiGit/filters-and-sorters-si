@@ -43,7 +43,7 @@ export default class Test {
     }
 
     registerPassed (test) {
-        const name = test.toString().replace('() =>', '');
+        const name = test.toString().replace('() =>', '').trim();
         console.log('\x1b[36m%s\x1b[0m', '\u2713 ' + name + ' passed')
         this.passed ++;
     }
