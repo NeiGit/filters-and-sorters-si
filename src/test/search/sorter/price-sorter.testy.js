@@ -35,7 +35,7 @@ function testSortedDesc() {
     Assertions.assertThatObject(secondElement)
         .hasAttributeWithValue('sku', 2255);
 
-    Assertions.assertFalse(() => firstElement.price > secondElement.price);
+    Assertions.assertTrue(() => firstElement.price > secondElement.price);
 }
 
 test.add(() => testSortedAsc());
