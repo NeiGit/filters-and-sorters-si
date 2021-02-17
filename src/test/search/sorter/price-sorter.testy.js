@@ -1,7 +1,7 @@
 import Assertions from '../../framework/assertions.js';
 import Test from '../../framework/test-builder.js';
-import PriceAscSorter from '../../search/sorters/price-asc-sorter.js';
-import PriceDescSorter from '../../search/sorters/price-desc-sorter.js';
+import PriceAscSorter from '../../../search/sorters/price-asc-sorter.js';
+import PriceDescSorter from '../../../search/sorters/price-desc-sorter.js';
 import products from '../../sample/wix-product-query-json-real-parsed-reduced.js';
 
 const test = new Test('PriceSorterTest')
@@ -40,4 +40,4 @@ function testSortedDesc() {
 
 test.add(() => testSortedAsc());
 test.add(() => testSortedDesc());
-test.safeRun();
+test.run();
