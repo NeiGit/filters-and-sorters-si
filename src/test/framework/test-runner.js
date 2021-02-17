@@ -41,5 +41,5 @@ function runSync(tests) {
 const tests = [];
 fromDir('src/test', /\.testy.js$/, tests);
 runSync(tests);
-console.log('\x1b[42m', '\x1b[30m', `\u2705\u2705 FINISHED RUNNING ALL TEST - ALL TESTS PASSED \u2705\u2705`, '\x1b[0m');
+console.log('\x1b[42m', '\x1b[30m', `\u2705\u2705 FINISHED RUNNING ALL TESTS - ALL TESTS PASSED \u2705\u2705`, '\x1b[0m');
 
