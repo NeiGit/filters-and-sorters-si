@@ -39,13 +39,14 @@ export default class Test {
     }
 
     registerFailed (test, err) {
-        const string = test.toString();
-        this.failed.push(new FailedTest(string.replace('() =>', '').substr(0, string.indexOf('{')).trim(), err.message))
+        const string = test.toString().replace('function', '');
+        const name = string.substr(0, string.indexOf('{')).trim();
+        this.failed.push(new FailedTest(name, err.message))
     }
 
     registerPassed (test) {
-        const string = test.toString();
-        const name = string.replace('() =>', '').substr(0, string.indexOf('{')).trim();
+        const string = test.toString().replace('function', '');
+        const name = string.substr(0, string.indexOf('{')).trim();
         console.log('\x1b[36m%s\x1b[0m', '\u2713 ' + name + ' passed')
         this.passed ++;
     }

@@ -72,6 +72,14 @@ export default [
     "price": 487
   },
   {
+    "sku": "2109",
+    "name": "Aacrilwax Cera Acrílica Incolora x 5 L.",
+    "description": "<p>Acrilwax Cera Acrilica Incolora X 5 L Wassington.<br>\nLa Cera Acrílica Wassington es un excelente producto que realza el aspecto de los pisos, otorgándoles un brillo profundo, intenso y un acabado que se asemeja al efecto \"mojado\". Su base acuosa posibilita ser aplicada sobre pisos de cemento, linóleos, cerámicos, graníticos, etc.</p>\n",
+    "category": "W Cuidado Pisos",
+    "brand": "Ariel",
+    "price": 487
+  },
+  {
     "sku": "2189",
     "name": "Acrilwax limpiador neutro x 30 L.",
     "description": "<p>Acrilwax limpiador neutro para pisos protegidos x&nbsp;30&nbsp;L. Wassington.<br>\nEl limpiador neutro baja espuma ha sido especialmente desarrollado para la limpieza de pisos encerados con ceras acrílicas o convencionales, por cuanto no remueve las capas de cera.</p>\n\n<p>Posee un bajo nivel de espuma y no requiere enjuagues posteriores.</p>\n",

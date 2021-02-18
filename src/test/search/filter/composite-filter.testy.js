@@ -16,7 +16,7 @@ function testSingleFilter() {
 
     const filtered = compositeFilter.filter(products);
     Assertions.assertThatArray(filtered)
-        .hasLength(2)
+        .hasLength(3)
         .allMatchAssertion(v => v.hasAttributeWithValue('category', 'W Cuidado Pisos'));
 }
 

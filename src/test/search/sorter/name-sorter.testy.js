@@ -17,7 +17,7 @@ function testSortedAsc() {
     Assertions.assertThatObject(firstElement)
         .hasAttributeWithValue('sku', 2001);
     Assertions.assertThatObject(secondElement)
-        .hasAttributeWithValue('sku', 2101);
+        .hasAttributeWithValue('sku', 2109);
 }
 
 function testSortedDesc() {

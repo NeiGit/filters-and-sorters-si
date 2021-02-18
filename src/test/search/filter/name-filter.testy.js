@@ -9,12 +9,12 @@ function testNameFilter() {
     let f = new NameFilter('AcrilwaX');
     let filtered = f.filter(products);
     Assertions.assertThatArray(filtered)
-        .hasLength(3);
+        .hasLength(4);
     
     f = new NameFilter('ACRILWAX CERA');
     filtered = f.filter(products);
     Assertions.assertThatArray(filtered)
-        .hasLength(2);
+        .hasLength(3);
 
     f = new NameFilter('acrilwax LI');
     filtered = f.filter(products);

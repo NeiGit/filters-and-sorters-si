@@ -2,6 +2,7 @@ import Assertions from '../framework/assertions.js';
 import Test from '../framework/test-builder.js';
 import CategoryFilter from '../../search/filters/category-filter.js'
 import BrandFilter from '../../search/filters/brand-filter.js'
+import NameFilter from '../../search/filters/name-filter.js'
 import CompositeFilter from '../../search/filters/composite-filter.js'
 import NameDescSorter from '../../search/sorters/name-desc-sorter.js';
 import PriceAscSorter from '../../search/sorters/price-asc-sorter.js';
@@ -11,7 +12,7 @@ import SearchEngine from '../../search/search-engine.js';
 import SorterTestUtils from './sorter/sorter-test-utils.js';
 import NameAscSorter from '../../search/sorters/name-asc-sorter.js';
 import Filter from '../../search/filters/filter.js';
-import Sorter from '../../search/sorters/sorter.js';
+
 
 const test = new Test('SearchEngineTest');
 
@@ -67,7 +68,7 @@ function testFilterAndSorter() {
     const result = se.search(products);
 
     Assertions.assertThatArray(result)
-        .hasLength(2)
+        .hasLength(3)
         .allMatchAssertion(p => p.hasAttributeWithValue('category', 'W Cuidado Pisos'));
 
     SorterTestUtils.assertOrder(result, (pRest, pCompare) => pRest.price >= pCompare.price);
@@ -135,10 +136,34 @@ function testJustFilterAndThenJustSort() {
         .hasAttributeWithValue('sku', 2102);
 }
 
+function testCompositeFilterAndSorter() {
+    const se = new SearchEngine();
+
+    const filter = new CompositeFilter();
+    filter.addFilter(new NameFilter('Acrilwax'));
+    filter.addFilter(CategoryFilter.fromCategory('W Cuidado Pisos'));
+    se.setFilter(filter);
+
+    const sorter = new CompositeSorter();
+    sorter.addSorter(new PriceAscSorter());
+    sorter.addSorter(new NameAscSorter());
+    se.setSorter(sorter);
+
+    const result = se.search(products);
+    Assertions.assertThatArray(result)
+        .hasLength(3)
+        .allMatchAssertion(p => p.hasAttributeWithValue('category', 'W Cuidado Pisos'));
+    SorterTestUtils.assertOrder(result, (pRest, pCompare) => {
+        if (pRest.price > pCompare.price) return true;
+        return pRest.name.localeCompare(pCompare.name) > 0;
+    });
+}
+
 test.add(testNoFiltersAndNoSorters);
 test.add(testFilterAndNoSorter);
 test.add(testSorterAndNoFilter);
 test.add(testFilterAndSorter);
 test.add(testFilterAndThenSorter);
 test.add(testJustFilterAndThenJustSort);
+test.add(testCompositeFilterAndSorter);
 test.run();

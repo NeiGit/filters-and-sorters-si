@@ -27,7 +27,7 @@ function run(path) {
 }
 
 function runSync(tests) {
-    console.log('\x1b[47m', '\x1b[30m', `BEGIN TEST EXECUTION - Total: ${tests.length} `, '\x1b[0m');
+    console.log('\x1b[47m', '\x1b[30m', `**** BEGIN TEST EXECUTION ****`, '\x1b[0m');
     console.log();
     for (const index in tests) {
         run(tests[index]);
