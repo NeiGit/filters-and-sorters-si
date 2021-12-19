@@ -11,7 +11,7 @@ function testNameFilter() {
     Assertions.assertThatArray(filtered)
         .hasLength(4);
     
-    f = new NameFilter('ACRILWAX CERA');
+    f = new NameFilter('ACRILWUYRT pRA');
     filtered = f.filter(products);
     Assertions.assertThatArray(filtered)
         .hasLength(3);
